@@ -12,17 +12,15 @@
 .PARAMETER RegexString
     Regex string to compare with $Files
 
-.INPUTS
-    FileInfo[]
-
-.OUTPUTS
-    FileInfo[] of all files failing the regex challenge
+.PARAMETER FullWidthOutput
+    Toggle to enable pushing pass/fail flags to the right edge of the terminal.
+    Not recommended for wide terminal windows.
 
 .EXAMPLE
-    ./generic/Confirm-FileNames.ps1 -Files (Get-ChildItem -Path "./testfiles/*.*" -Recurse) -RegexString "((.\d+-\d+)|(UNKNOWN))_\d{2}( \(\d\))*\.(pdf|tif)"
+    Confirm-FileNames -Files (Get-ChildItem -Path "./testfiles/*.*" -Recurse) -RegexString "((.\d+-\d+)|(UNKNOWN))_\d{2}( \(\d\))*\.(pdf|tif)"
 
 .EXAMPLE
-    Get-ChildItem -Path "./testfiles/*.*" -Recurse | ./generic/Confirm-FileNames.ps1 -RegexString "((.\d+-\d+)|(UNKNOWN))_\d{2}( \(\d\))*\.(pdf|tif)"
+    Get-ChildItem -Path "./testfiles/*.*" -Recurse | Confirm-FileNames -RegexString "((.\d+-\d+)|(UNKNOWN))_\d{2}( \(\d\))*\.(pdf|tif)"
 #>
 
 
